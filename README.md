@@ -1,3 +1,5 @@
+Notebook and functions used to clean multimodal vocal data.
+
 1. Start a virtual environment (e.g. using conda): 
 conda create -n data_clean_env python=3.11.7
 conda activate data_clean_env
