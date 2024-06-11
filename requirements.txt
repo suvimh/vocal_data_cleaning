@@ -1,0 +1,5 @@
+numpy 
+plotly
+tqdm
+biosignalsnotebooks
+moviepy
