@@ -3,3 +3,4 @@ plotly
 tqdm
 biosignalsnotebooks
 moviepy
+h5py

@@ -155,14 +155,14 @@ def time_to_milliseconds(time_str):
     Raises:
     - ValueError: If the time string is not in the correct format 'HH:MM:SS:frames'.
     '''
-    match = re.match(r'(\d+):(\d+):(\d+):(\d+)', time_str)
+    match = re.match(r'(\d+):(\d+):(\d+);(\d+)', time_str)
     if match:
         hours, minutes, seconds, frames = map(int, match.groups())
         total_seconds = hours * 3600 + minutes * 60 + seconds + frames / 24.0
         total_milliseconds = total_seconds * 1000
         return total_milliseconds
     else:
-        raise ValueError(f"Time string {time_str} is not in the correct format 'HH:MM:SS:frames'.")
+        raise ValueError(f"Time string {time_str} is not in the correct format 'HH:MM:SS;frames'.")
 
 
 
@@ -316,7 +316,7 @@ def get_h5_and_wav_files_from_input_directory(directory_path):
         print("No files found in the directory.")
     else:
         for file in files:
-            if file.endswith(".h5"):
+            if file.endswith(".h5") and not file.startswith('._'):
                 print(f"h5 file: {file}")
                 h5_path = os.path.join(directory_path, file)
                 h5_file = file
