@@ -106,6 +106,8 @@ def check_folder_contents(start_path):
                         phone_mp4_exists = True
                     elif "computer" in file.lower():
                         computer_mp4_exists = True
+                    else:
+                        error_log.write(f"EXTRA FILES: Extra mp4 file in {root}\n")
                 elif file.endswith(".wav"):
                     if "phone" in file.lower():
                         phone_wav_exists = True
@@ -113,6 +115,9 @@ def check_folder_contents(start_path):
                         computer_wav_exists = True
                     elif "mic" in file.lower():
                         mic_wav_exists = True
+                    else:
+                        error_log.write(f"EXTRA FILES: Extra wav file in {root}\n")
+
             
             # Assert the existence of required files for each directory
             try:
@@ -179,7 +184,7 @@ def get_audio_from_video_files(path):
                     extract_audio_from_video(os.path.join(root, file))
 
 
-find_dirs_with_only_files_and_organise(DATA_PATH)
+# find_dirs_with_only_files_and_organise(DATA_PATH)
 # rename_files_with_leading_zero(DATA_PATH)
-get_audio_from_video_files(DATA_PATH)
+# get_audio_from_video_files(DATA_PATH)
 check_folder_contents(DATA_PATH)
