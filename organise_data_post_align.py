@@ -100,23 +100,47 @@ def check_folder_contents(start_path):
             # Check for the existence of required files
             for file in files:
                 if file.endswith(".json"):
-                    json_file_exists = True
+                    if not json_file_exists:  
+                        json_file_exists = True
+                    else:
+                        if not file.startswith('._'):
+                            error_log.write(f"EXTRA FILES: Extra json file in {root}: {file}\n")
                 elif file.endswith(".mp4"):
                     if "phone" in file.lower():
-                        phone_mp4_exists = True
+                        if not phone_mp4_exists:
+                            phone_mp4_exists = True
+                        else:
+                            if not file.startswith('._'):
+                                error_log.write(f"EXTRA FILES: Extra mp4 file in {root}: {file}\n")
                     elif "computer" in file.lower():
-                        computer_mp4_exists = True
+                        if not computer_mp4_exists:
+                            computer_mp4_exists = True
+                        else:
+                            if not file.startswith('._'):
+                                error_log.write(f"EXTRA FILES: Extra mp4 file in {root}: {file}\n")
                     else:
-                        error_log.write(f"EXTRA FILES: Extra mp4 file in {root}\n")
+                        error_log.write(f"EXTRA FILES: Extra mp4 file in {root}: {file}\n")
                 elif file.endswith(".wav"):
                     if "phone" in file.lower():
-                        phone_wav_exists = True
+                        if not phone_wav_exists:
+                            phone_wav_exists = True
+                        else:
+                            if not file.startswith('._'):
+                                error_log.write(f"EXTRA FILES: Extra wav file in {root}: {file}\n")
                     elif "computer" in file.lower():
-                        computer_wav_exists = True
+                        if not computer_wav_exists:
+                            computer_wav_exists = True
+                        else:
+                            if not file.startswith('._'):
+                                error_log.write(f"EXTRA FILES: Extra wav file in {root}: {file}\n")
                     elif "mic" in file.lower():
-                        mic_wav_exists = True
+                        if not mic_wav_exists:
+                            mic_wav_exists = True
+                        else:
+                            if not file.startswith('._'):
+                                error_log.write(f"EXTRA FILES: Extra wav file in {root}: {file}\n")
                     else:
-                        error_log.write(f"EXTRA FILES: Extra wav file in {root}\n")
+                        error_log.write(f"EXTRA FILES: Extra wav file in {root}: {file}\n")
 
             
             # Assert the existence of required files for each directory
